@@ -19,7 +19,7 @@ for dig in bb:
     print('-'*30)
 
 for addr in bb:
-    if int(addr) > 0 and int(addr) <= 255:
+    if int(addr) >= 0 and int(addr) <= 255:
           octets.append((addr))
     else:
       print('\n'+ '-'*30)
