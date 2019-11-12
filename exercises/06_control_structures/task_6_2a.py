@@ -15,8 +15,8 @@ for dig in bb:
   if dig.isdigit() != True or add.count('.') != 3:
     print('\n'+ '-'*30)
     print('Please input only digits')
-    break
     print('-'*30)
+    break
 
 for addr in bb:
     if int(addr) >= 0 and int(addr) <= 255:
