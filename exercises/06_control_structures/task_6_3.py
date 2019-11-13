@@ -69,6 +69,7 @@ for intf, vlan in trunk.items():
             print('  {} {},{}'.format(command, trunk[intf][1], trunk[intf][2]))
         elif command.endswith('allowed vlan') and trunk[intf][0] == 'del':
             print('  {} remove {}'.format(command, trunk[intf][1]))
-        else:                                                                                         print('  {}'.format(command))
+        else:
+          print('  {}'.format(command))
     print('!')
 
