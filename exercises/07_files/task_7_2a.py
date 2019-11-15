@@ -23,4 +23,5 @@ file_name = argv[1]
 
 with open(file_name) as scr:
     for line in scr:
-        print(line.replace('!','').strip().rstrip())
+        if 'Current' not in line and 'duplex' not in line and 'alias' not in line:
+             print(line.replace('!','').strip())
