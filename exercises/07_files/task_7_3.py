@@ -20,9 +20,9 @@
 
 '''
 
-with open('MAC_add.txt') as f:
+with open('CAM_table.txt') as f:
     fread = f.readlines()
-    #fread.sort()
     for line in fread:
-    if line.count('.') == 2:
-        print(line.replace('DYNAMIC', ''))
+        if line.count('.') == 2:
+            p = line.replace('DYNAMIC', '')
+            print(p.rstrip())
