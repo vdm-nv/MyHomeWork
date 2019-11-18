@@ -35,4 +35,5 @@ with open(file_name) as scr, open('config_sw1_cleared.txt', 'w') as dest:
         #if 'Current' not in line and 'duplex' not in line and 'alias' not in line:
         #     print(line)
         if not any(word in line for word in ignore):
-            dest.write(line)
+            dest.writelines(line)
+            print(line)
