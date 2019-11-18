@@ -20,15 +20,9 @@
 
 '''
 
-with open('CAM_table.txt') as src:
-    for line in src:
-       if line[0].isalnum():
-           continue
-       
-       if not line:
-           continue
-
-       line = line.replace('DYNAMIC', '')
-       line = line.replace('-', '')
-       print(line.rstrip())
-
+with open('MAC_add.txt') as f:
+    fread = f.readlines()
+    #fread.sort()
+    for line in fread:
+    if line.count('.') == 2:
+        print(line.replace('DYNAMIC', ''))
