@@ -23,8 +23,22 @@
 
 with open('CAM_table.txt') as f:
     fread = f.readlines()
-    fread.sort()
+    result = []
     for line in fread:
         if line.count('.') == 2:
             p = line.replace('DYNAMIC', '')
-            print(p.rstrip())
+            result.append(p.split()) # make list in list
+    k = []
+    big = []
+    for lists in result:
+        for item in lists:
+            if item.isdigit():
+                k.append(int(item))   # make integer in  item[0]
+            else:
+                k.append(item)
+        # make again list in list
+        big = [k[x:x+3] for x in range(0, len(k) - 2, 3)]
+        big.sort()
+#    print('\n'.join(str(x) for x in big))
+    for item in big:
+        print('{:<8}{:<12}{:>8}'.format(*item))
