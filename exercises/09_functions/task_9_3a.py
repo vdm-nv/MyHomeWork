@@ -30,22 +30,22 @@ trunk = {}
 def get_int_vlan_map(config_filename):
         with open(config_filename) as f:
             for line in f:
-                if 'FastEth' in line:           # ищем fasteth
-                    intf_a = line.split()[1]    #
-                elif 'access vlan' in line:     # и если есть acces vl
-                    vl_a = line.split()[-1]     #
-                    access[intf_a] = int(vl_a)  # добавляем значение access intf и vlan в числовом значении
+                if 'FastEth' in line:           # ищем FastEth
+                    intf_a = line.split()[1]    # отбираем все FastEthernetХ/Х
+                elif 'access vlan' in line:     # если есть acces vlan в строке
+                    vl_a = line.split()[-1]     # присваиваем последнее значение строки , это номер вилана = 10 или 20 и т.д.
+                    access[intf_a] = int(vl_a)  # добавляем значение в словарь access,где ключ intf,а значение -vlan(число)
 
-                elif 'mode access' in line:
+                elif 'mode access' in line:     # ищем по mode access
                     vl_b = 1
-                    access[intf_a] = vl_b
+                    access[intf_a] = vl_b       # добавляем в словарь access, оставшиеся интерфейсы со значение 1
 
                 elif 'allowed vlan' in line:
                      vl_с = line.split()        # разбивает строку на части 
                      vlvl = []
-                     vl = vl_с[-1].split(',')   # забираем 
+                     vl = vl_с[-1].split(',')   # забираем на список заняения ['100', '200'] 
                      for i in vl:
-                         vlvl.append(int(i))
-                     trunk[intf_a] = vlvl
-                     result = (access, trunk)
+                         vlvl.append(int(i))    # добавляем в новый список числа из списка vl
+                     trunk[intf_a] = vlvl       # создаем словарь trunk, где ключ intf_a, а значение список чисел vlvl
+                     result = (access, trunk)   # создаем кортеж из словарей access, trunk
             return result
