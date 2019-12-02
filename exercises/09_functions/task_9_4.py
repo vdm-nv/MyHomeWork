@@ -42,17 +42,17 @@ def convert_config_to_dict(config_filename):
     with open(config_filename) as f:
         for line in f:
             line = line.rstrip()
-            if line.startswith('!'):
+            if line.startswith('!'):                    #убираем "!"
                 continue
-            elif not ignore_command(line, ignore):
-                new.append(line)
-    new.pop(0)
+            elif not ignore_command(line, ignore):      #удалем строки с игнор списка
+                new.append(line)                        #добавляем вывод в список new
+    new.pop(0)                                          #удалем первый элемент списака ('') 
     for i in new:
-        if i[0] != ' ':
-            res[i] = []
+        if i[0] != ' ':                 # если строка не с пробелом
+            res[i] = []                 # давляем в словарь ключь с пустым значением
             k = i
-        elif i[0] == ' ':
-            v = i.lstrip()
-            res[k].append(v)
+        elif i[0] == ' ':               # если строка начинается с пробела
+            v = i.lstrip()              # удалем пробел
+            res[k].append(v)            # довялем в список к ключу в словарь все значения
     return res
 
