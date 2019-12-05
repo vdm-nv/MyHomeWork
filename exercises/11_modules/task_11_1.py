@@ -27,16 +27,21 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+with open('sh_cdp_n_sw1.txt') as f:
+    sh_cdp_n_sw1 = f.read().rstrip()
+
 result = {}
 
 def parse_cdp_neighbors(command_output):
-    with open(command_output) as f:
-        for line in f:
-            line = line.rstrip()
-            if line.startswith('R'):                                                                  rem_dev,local_i,local_p,*rest,rem_i,rem_p = line.split()
-            k = ('SW1', local_i+local_p)
-            v = (rem_dev, rem_i + rem_p)
-            result[k]=(v)
-        return result
+    line = command_output[250:].split('\n')
+    for i in line:
+        rem_dev,loc_i,loc_p, *rest,rem_i,rem_p = i.split()
+        k = ('SW1', loc_i+loc_p)
+        v =(rem_dev, rem_i + rem_p)
+        result[k]= (v)
+    return result
+    print(result)
+
 
 
