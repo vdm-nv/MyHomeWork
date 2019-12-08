@@ -26,7 +26,8 @@ def create_network_map(filenames):
                 rem_dev,local_i,local_p,*rest,rem_i,rem_p = i.split()
                 k.append(local_i+local_p)
                 v = (rem_dev, rem_i + rem_p)
-                res[tuple(k)]= (v)
+                if v not in res:
+                    res[tuple(k)]= (v)
                 k.pop(-1)
     return res
 
