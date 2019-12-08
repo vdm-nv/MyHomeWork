@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from draw_network_graph import draw_topology
 
 ff = ['sh_cdp_n_sw1.txt','sh_cdp_n_r1.txt','sh_cdp_n_r2.txt','sh_cdp_n_r3.txt']
@@ -26,7 +27,7 @@ def create_network_map(filenames):
                 rem_dev,local_i,local_p,*rest,rem_i,rem_p = i.split()
                 k.append(local_i+local_p)
                 v = (rem_dev, rem_i + rem_p)
-                if v not in res:
+                if v not in res:                    #если нет значения в словаре, тогда добавляем вывод в словарь
                     res[tuple(k)]= (v)
                 k.pop(-1)
     return res
