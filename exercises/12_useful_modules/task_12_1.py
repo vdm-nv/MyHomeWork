@@ -25,9 +25,9 @@ def ping_ip_addresses(ip_address):
     for ip in ip_address:
         print('Now we are try to reach', ip)
         result = subprocess.run('ping {} -c 2 -n'.format(ip),
-                                shell=True,stdout=subprocess.PIPE,
-                                stderr=subprocess.PIPE, encoding='utf-8')
-        if result.returncode == 0:
+                                shell=True,stdout=subprocess.PIPE,          #stdout=subprocess.PIPE - Отключение вывода на стандартный поток вывода
+                                stderr=subprocess.PIPE, encoding='utf-8')   #stderr=subprocess.PIPE Работа со стандартным потоком ошибок
+        if result.returncode == 0: # Код 0 означает, что программа выполнилась успешно.
             reach.append(ip)
             #print('\n its working IP', reach)
         else:
@@ -35,4 +35,5 @@ def ping_ip_addresses(ip_address):
             #print('\n IP is unreachable', unreach)
     res = (reach,unreach)
     return res
+#Out[48]: (['8.8.8.8', '8.8.4.4'], ['1.1.1', '8.8.7.1'])
 
