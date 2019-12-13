@@ -45,9 +45,9 @@ trunk_config = {
     'FastEthernet0/4': [17]
 }
 
-result = []
-
 def generate_trunk_config(intf_vlan_mapping, trunk_template):
+    result = []
+    
     for intf, vlan in intf_vlan_mapping.items():
         result.append('interface {}'.format(intf))
         for command in trunk_template:
