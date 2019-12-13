@@ -3,11 +3,11 @@ from draw_network_graph import draw_topology
 
 ff = ['sh_cdp_n_sw1.txt','sh_cdp_n_r1.txt','sh_cdp_n_r2.txt','sh_cdp_n_r3.txt']
 
-res = {}
-
-output_from_files = []
-
 def create_network_map(filenames):
+    
+    res = {}
+    output_from_files = []
+    
     for item in ff:
         with open(item) as f:
             sh = f.read().rstrip()
