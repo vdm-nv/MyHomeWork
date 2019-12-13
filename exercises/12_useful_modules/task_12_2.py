@@ -30,9 +30,12 @@
  '172.21.41.129', '172.21.41.130', '172.21.41.131', '172.21.41.132']
 
 '''
-res =[]
+
 
 def convert_ranges_to_ip_list(list_with_ip):
+ 
+    res =[]
+ 
     fir, sec, last = list_with_ip
     res.append(fir)
     seco = sec.split('.')
