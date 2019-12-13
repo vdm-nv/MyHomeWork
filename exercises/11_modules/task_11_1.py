@@ -31,9 +31,10 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 with open('sh_cdp_n_sw1.txt') as f:
     sh_cdp_n_sw1 = f.read().rstrip()
 
-result = {}
-
 def parse_cdp_neighbors(command_output):
+    
+    result = {}
+    
     line = command_output[250:].split('\n')
     for i in line:
         rem_dev,loc_i,loc_p, *rest,rem_i,rem_p = i.split()
