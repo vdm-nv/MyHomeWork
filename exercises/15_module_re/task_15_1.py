@@ -39,3 +39,16 @@ def get_ip_from_cfg(filename):
         return res
 
 print(get_ip_from_cfg('config_r1.txt'))
+
+####Version_02
+#regex =(' ip address (\S+) (\S+)')
+#
+#res = []
+#with open('config_r1.txt') as f:
+#     for line in f:
+#         match = re.search(regex, line)
+#         if match:
+#             ip = match.group(1)
+#             mask = match.group(2)
+#             res.append((ip,mask))
+#     print(res)
