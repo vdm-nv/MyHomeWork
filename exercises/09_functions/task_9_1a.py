@@ -40,9 +40,10 @@ access_config = {
     'FastEthernet0/16': 17
 }
 
-result = []
-
 def generate_access_config(intf_vlan_mapping, access_template, psecurity = None):
+    
+    result = []
+    
     for intf in intf_vlan_mapping:
         result.append('interface {}'.format(intf))
         for command in access_template:
