@@ -35,10 +35,11 @@ def ignore_command(command, ignore):
     * False - если нет
     '''
     return any(word in command for word in ignore)
-res = {}
-new = []
 
 def convert_config_to_dict(config_filename):
+    res = {}
+    new = []
+    
     with open(config_filename) as f:
         for line in f:
             line = line.rstrip()
