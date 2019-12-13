@@ -21,11 +21,13 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
-result = ()
-access = {}
-trunk = {}
 
 def get_int_vlan_map(config_filename):
+ 
+    result = ()
+    access = {}
+    trunk = {}
+ 
     with open(config_filename) as f:
         for line in f:
             if 'FastEth' in line:           # ищем fasteth
