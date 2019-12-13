@@ -17,11 +17,12 @@
 
 import subprocess
 
-res = ()
-reach = []
-unreach = []
-
 def ping_ip_addresses(ip_address):
+    
+    res = ()
+    reach = []
+    unreach = []
+    
     for ip in ip_address:
         print('Now we are try to reach', ip)
         result = subprocess.run('ping {} -c 2 -n'.format(ip),
