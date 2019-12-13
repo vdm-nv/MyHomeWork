@@ -23,10 +23,24 @@
 
 '''
 import re
+from pprint import pprint
 
-def get_ip_from_cfg(filename):
+def get_ip_from_cfg(filename):             # регулярные выражения обьявлены в переменную
+    regex =(' ip address (\S+) (\S+)')
 
-    res = []
+    result = []
+
+    with open(filename) as f:
+        for line in f:
+            match = re.search(regex, line)
+            if match:
+                ip = match.group(1)
+                mask = match.group(2)
+                result.append((ip,mask))
+    return result
+
+def get_ip_from_cfg_01(filename):           # регулярные выражения в середине цикла фукции
+    result = []
 
     with open(filename) as f:
         for line in f:
@@ -34,21 +48,11 @@ def get_ip_from_cfg(filename):
                 match = re.search(r' .* (\S+) (\S+)',line)
                 ip = match.group(1)
                 mask = match.group(2)
-                res.append((ip,mask))
+                result.append((ip,mask))
 
-        return res
+        return result
 
-print(get_ip_from_cfg('config_r1.txt'))
+if __name__ == "__main__":
+    result = get_ip_from_cfg('config_r1.txt')   #использует функцию get_ip_from_cfg
+    pprint(result)
 
-####Version_02
-#regex =(' ip address (\S+) (\S+)')
-#
-#res = []
-#with open('config_r1.txt') as f:
-#     for line in f:
-#         match = re.search(regex, line)
-#         if match:
-#             ip = match.group(1)
-#             mask = match.group(2)
-#             res.append((ip,mask))
-#     print(res)
