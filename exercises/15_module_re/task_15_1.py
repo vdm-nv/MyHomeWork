@@ -49,8 +49,7 @@ def get_ip_from_cfg_01(filename):           # регулярные выраже�
                 ip = match.group(1)
                 mask = match.group(2)
                 result.append((ip,mask))
-
-        return result
+    return result
 
 if __name__ == "__main__":
     result = get_ip_from_cfg('config_r1.txt')   #использует функцию get_ip_from_cfg
