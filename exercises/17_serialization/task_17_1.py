@@ -16,6 +16,6 @@ re.search(r'.+, Version (\d+.\d\S+), (.+\s){7}.+ uptime is(( \d+ \w+,){2} \d+ \w
 r1,r2,r3 = '','',''
 regex = (r'.+, Version (\d+.\d\S+), '
          r'(.+\s){7}.+ '
-         r'uptime is(( \d+ \w+,){2} \d+ \w+)'
+         r'uptime is((?: \d+ \w+,){2} \d+ \w+)'
          r'\s.+\s.+ file is "(\S+:\S+\.\w+)"')
 
