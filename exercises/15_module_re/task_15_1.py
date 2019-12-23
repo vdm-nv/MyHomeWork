@@ -25,7 +25,7 @@
 import re
 from pprint import pprint
 
-def get_ip_from_cfg(filename):             # регулярные выражения обьявлены в переменную
+def get_ip_from_cfg(filename):             
     regex =(' ip address (\S+) (\S+)')
 
     result = []
@@ -39,7 +39,7 @@ def get_ip_from_cfg(filename):             # регулярные выражен
                 result.append((ip,mask))
     return result
 
-def get_ip_from_cfg_01(filename):           # регулярные выражения в середине цикла фукции
+def get_ip_from_cfg_01(filename):           
     result = []
 
     with open(filename) as f:
