@@ -19,3 +19,21 @@ regex = (r'.+, Version (\d+.\d\S+), '
          r'uptime is((?: \d+ \w+,){2} \d+ \w+)'
          r'\s.+\s.+ file is "(\S+:\S+\.\w+)"')
 
+
+def write_inventory_to_csv(data_filenames):
+    r1,r2,r3 = '','',''
+    for item in data_filenames:
+        if r1 in item:
+            r1 = 'r1'
+            with open(item) as f:
+                sh_ver_r1 = f.read()
+
+        elif r2 in item:
+            r2 = 'r2'
+            with open(item) as f:
+                sh_ver_r2 = f.read()
+
+        else:
+            r3 = 'r3'
+            with open(item) as f:
+                sh_ver_r3 = f.read()
