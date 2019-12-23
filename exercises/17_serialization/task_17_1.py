@@ -11,13 +11,11 @@ for item in files:
                 res = (ios,uptime,image)
                 print(res)
 	
-	.* \(.*\), Version (\d+.\d\S+\w{2}), .+ uptime is (\d+ \w+, \d+ \w+, \d+ \w+).* file is (\S+:\S+\.\w+).*
-	
-	 .+ +uptime is (\d+ \w+, \d+ \w+, \d+ \w+)
-	 
-	 re.search(r'.* \(.*\), Version (\d+.\d\S+\w{2}), .*\s.+\s.+\s.+\s.+',sh_version_r1).group()
-	 
-	 
-	 r1 = re.findall(r'.* \(.*\), Version (\d+.\d\S+\w{2}), .*\s.+\s.+\s.+\s.+\s.+\s.*\s.+ uptime is (\d+ \w+, \d+ \w+, \d+ \w
-     ...: +)\s.+\s.+ file is "(\S+:\S+\.\w+)',sh_version_r1)
-    '''
+re.search(r'.+, Version (\d+.\d\S+), (.+\s){7}.+ uptime is(( \d+ \w+,){2} \d+ \w+)\s.+\s.+ file is "(\S+:\S+\.\w+)"',sh_ver_r1).groups()
+
+r1,r2,r3 = '','',''
+regex = (r'.+, Version (\d+.\d\S+), '
+         r'(.+\s){7}.+ '
+         r'uptime is(( \d+ \w+,){2} \d+ \w+)'
+         r'\s.+\s.+ file is "(\S+:\S+\.\w+)"')
+
