@@ -24,6 +24,7 @@ Cгенерировать топологию, которая соответст�
 > apt-get install graphviz
 > И модуль python для работы с graphviz:
 > pip install graphviz
+'''
 #!/usr/bin/env python3
 from draw_network_graph import draw_topology
 
