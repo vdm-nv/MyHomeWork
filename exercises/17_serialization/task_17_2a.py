@@ -46,11 +46,11 @@ def generate_topology_from_cdp(list_of_files, save_to_filename=None):
     for item in list_of_files:
         with open(item) as f:
             for line in f:
-                m = re.search(regex,line)
+                m = re.search(regex,line)               # отбираем R1> или SW1>
                 if m:
                     gl_k= m.group(1)
                     d[gl_k]={}
-                m01 = re.search(regex01,line)
+                m01 = re.search(regex01,line)           # отбираем (SW1, Eth 0/0, Eth 0/1)
                 if m01:
                     rem_d = m01.group(1)
                     loc_p = m01.group(2)
