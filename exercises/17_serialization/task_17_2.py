@@ -31,16 +31,16 @@ with open('sh_cdp_n_sw1.txt') as f:
 
 def parse_sh_cdp_neighbors(sh_cdp):
 
-    regex = (r'\s(\S+\d)>.+\s{2}.+\s.+\s{2}.+\s'
+    regex = (r'\s(\S+\d)>.+'
              r'(\w\d) +(\w{3} \d\/\d) .+ (\w{3} \d\/\d)\s'
              r'(\w\d) +(\w{3} \d\/\d) .+ (\w{3} \d\/\d)\s'
              r'(\w\d) +(\w{3} \d\/\d) .+ (\w{3} \d\/\d)\s'
              r'(\w\d) +(\w{3} \d\/\d) .+ (\w{3} \d\/\d)\s')
 
-    res = re.search(regex, sh_cdp)
+    res = re.search(regex, sh_cdp, re.DOTALL)                   # точка обозначает любой символ, кроме перевода строки, это можно изменить с помощью флага re.DOTALL
     l = list(res.groups())
-    l.pop(0)
-    res1 = [l[d:d+3] for d in range(0, len(l),3)]
+    l.pop(0)                                                    # del 0 item 'SW1
+    res1 = [l[d:d+3] for d in range(0, len(l),3)]               # split list on 3 lists
     k = 'SW1'
     d = {}
     d[k] = {}
