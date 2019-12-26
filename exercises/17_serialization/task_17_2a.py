@@ -52,10 +52,8 @@ def generate_topology_from_cdp(list_of_files, save_to_filename=None):
                     d[gl_k]={}
                 m01 = re.search(regex01,line)           # отбираем (SW1, Eth 0/0, Eth 0/1)
                 if m01:
-                    rem_d = m01.group(1)
-                    loc_p = m01.group(2)
-                    rem_p = m01.group(3)
-                    d[gl_k][loc_p]={rem_d: rem_p}
+                        rem_d, loc_p, rem_p = m01.groups()
+                        d[gl_k][loc_p]={rem_d: rem_p}
 
     if save_to_filename is None:
         pass
