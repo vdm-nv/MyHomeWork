@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 '''
 Задание 17.2b
@@ -42,6 +43,9 @@ d={}
 regex = (r'(\S+)>.+')
 regex01 = (r'(\S+) + (\w{3} \d\/\d) .+ (\w{3} \d\/\d)')
 
+=======
+'''
+>>>>>>> 7840f404a2b4e197c2a041f41582c65408360363
 for item in files:
     with open(item) as f:
         for line in f:
@@ -54,6 +58,7 @@ for item in files:
                 v=(rem_d,rem_p)
                 if v not in d:
                     d[loc_d,loc_p]=v
+<<<<<<< HEAD
 
     with open('topology.yaml','w') as f:
             temp = yaml.dump(d,f)
@@ -65,3 +70,8 @@ def transform_topology(file):
 
 draw_topology(transform_topology('topology.yaml'))
 
+=======
+with open('topology.yaml','w') as f:
+    temp = yaml.dump(d,f)
+    '''
+>>>>>>> 7840f404a2b4e197c2a041f41582c65408360363
