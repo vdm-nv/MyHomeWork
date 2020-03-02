@@ -1,0 +1,11 @@
+{% include 'cisco_base.txt' %}
+{% include 'alias.txt' %}
+line con 0
+ logging synchronous
+ history size 100
+line vty 0 4
+ logging synchronous
+ history size 100
+!
+{% include 'eem_int_desc.txt' %}
+
