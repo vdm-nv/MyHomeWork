@@ -15,7 +15,6 @@
 Проверить работу шаблона с помощью функции parse_command_output из задания 22.1.
 '''
 import sys
-#import textfsm
 from task_22_1 import parse_command_output
 
 
