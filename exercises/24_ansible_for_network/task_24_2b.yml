@@ -1,0 +1,22 @@
+---
+
+- name: Test
+  hosts: cisco-routers
+  gather_facts: false
+
+  tasks:
+
+    - name: catch facts
+      ios_facts:
+        gather_subset:
+          - interfaces
+
+
+    - name: Show ipv6
+     #when: ansible_net_all_ipv6_addresses|length != 0
+      debug: var=ansible_net_all_ipv6_addresses
+      register: sh_res
+
+    - name: show result
+      when: ansible_net_all_ipv6_addresses|length != 0
+      debug: var=sh_res.ansible_net_all_ipv6_addresses
