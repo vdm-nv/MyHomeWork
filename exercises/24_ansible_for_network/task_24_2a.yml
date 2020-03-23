@@ -1,0 +1,21 @@
+---
+
+- name: Test
+  hosts: cisco-routers
+  gather_facts: false
+
+  tasks:
+
+    - name: FACTS
+      ios_facts:
+        gather_subset:
+          - interfaces
+      register: intf_facts_result
+
+    - name: Show ansible_net_interfaces FACTS
+      debug: var=ansible_net_interfaces
+
+    - name: Copy facts to files
+      copy:
+        content: "{{ intf_facts_result | to_nice_yaml }}"
+        dest: "all_facts/{{inventory_hostname}}_intf_facts.yaml"
