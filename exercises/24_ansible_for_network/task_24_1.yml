@@ -13,6 +13,6 @@
         commands: sh arp
       register: sh_arp
 
-      #- name: Debug registered var
-      #debug: var=sh_ip_int_br_result.stdout_lines
+      - name: Debug registered var
+      debug: var=sh_ip_int_br_result.stdout
 
