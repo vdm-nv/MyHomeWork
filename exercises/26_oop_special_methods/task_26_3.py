@@ -43,14 +43,14 @@ ValueError: Incorrect mask
 '''
 class IPAddress:
     def __init__(self, addr):
-        temp = addr.split('/')
-        if len(temp[0].split('.')) == 4:
+        temp = addr.split('/')                                 # делаем список ['10.1.1.11', '24']
+        if len(temp[0].split('.')) == 4:                       # розделяем по "." и проверяем есть ли 4 части
             self.ip = temp[0]
         else:
             raise ValueError('Incorrect IPv4 address')
 
         for i in temp[0].split('.'):
-            if not i.isdigit() or not 0 <= int(i) <=255:
+            if not i.isdigit() or not 0 <= int(i) <=255:       
                 raise ValueError('Incorrect IPv4 address')
             else:
                 self.ip = temp[0]

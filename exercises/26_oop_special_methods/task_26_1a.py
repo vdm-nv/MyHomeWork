@@ -40,7 +40,7 @@ class Topology:
         out = self.res.copy()
         out.update(other.res)
         output = Topology(out)
-        return test
+        return output
 
     def getitem(self, index):
         print('Вызываю __getitem__')
